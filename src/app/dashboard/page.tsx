@@ -30,7 +30,7 @@ export default async function DashboardPage() {
             Organize, manage, and track all your team's work in one place.
           </p>
         </div>
-        <Link href="/project/create/" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-fuchsia-600 text-white font-semibold text-sm hover:bg-fuchsia-700 transition-colors">
+        <Link href="/project/create/" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#3a1152] text-white font-semibold text-sm hover:bg-opacity-50 transition-colors">
           <Plus size={18} />
           Create Project
         </Link>
