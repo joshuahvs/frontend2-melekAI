@@ -69,7 +69,7 @@ export default function HomePage() {
                     <div className="container mx-auto px-6 relative z-10">
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#a529bb]/30 mb-6" style={{ backgroundColor: '#a529bb' + '20' }}>
                             <Zap size={16} style={{ color: '#a529bb' }} />
-                            <span className="text-sm font-medium" style={{ color: '#a529bb' }}>Platform AI Terdepan untuk Developer Indonesia</span>
+                            <span className="text-sm font-medium" style={{ color: '#a529bb' }}>🚀 Solusi AI Terdepan untuk Bisnis Indonesia</span>
                         </div>
 
                         <h2 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-white via-[#939ba9] to-white bg-clip-text text-transparent">
