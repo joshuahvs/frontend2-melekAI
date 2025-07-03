@@ -4,6 +4,7 @@ import { RegisterLink, LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextj
 import { Sparkles, Menu, X } from 'lucide-react';
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 type Props = {
   user: {
@@ -22,9 +23,9 @@ export default function Navbar({ user }: Props) {
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#a529bb] to-[#531e4c] flex items-center justify-center">
             <Sparkles size={16} className="text-white" />
           </div>
-          <h1 className="text-2xl font-bold text-white">
-            Melek<span style={{ color: '#a529bb' }}>AI</span>
-          </h1>
+          <Link href="#beranda" className="flex items-center gap-2">
+              <Image src="/logo.svg" alt="MelekAI Logo" className="h-10 w-auto" width={120} height={40} priority />
+          </Link>
         </div>
 
         {/* Hamburger Menu Button */}
@@ -38,9 +39,7 @@ export default function Navbar({ user }: Props) {
         {/* Navigation Links */}
         <ul className={`md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-[#111827] md:bg-transparent px-6 py-4 md:p-0 space-y-4 md:space-y-0 md:space-x-12 text-sm transition-all duration-300 ease-in-out ${menuOpen ? 'flex' : 'hidden'}`}>
           <li><Link href="/" className="text-white hover:text-[#a529bb]">Beranda</Link></li>
-          <li><Link href="/features" className="text-white hover:text-[#a529bb]">Fitur</Link></li>
           <li><Link href="/pricing" className="text-white hover:text-[#a529bb]">Harga</Link></li>
-          <li><Link href="/blog" className="text-white hover:text-[#a529bb]">Blog</Link></li>
           <li><Link href="/contact" className="text-white hover:text-[#a529bb]">Kontak</Link></li>
         </ul>
 

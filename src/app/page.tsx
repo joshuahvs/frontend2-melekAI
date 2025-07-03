@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { LoginLink } from '@kinde-oss/kinde-auth-nextjs';
 // import Navbar from '@/components/NavbarClient';
 
 
@@ -65,9 +66,9 @@ export default function HomePage() {
                         <li><Link href="#solusi" className="hover:text-[#a529bb] transition-all duration-300 hover:scale-105">Solusi</Link></li>
                         <li><Link href="#kontak" className="hover:text-[#a529bb] transition-all duration-300 hover:scale-105">Kontak</Link></li>
                     </ul>
-                    <Link href="/api/auth/login?post_login_redirect_url=/dashboard" className="bg-gradient-to-r from-[#a529bb] to-[#531e4c] text-white font-bold py-3 px-8 rounded-full shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 text-sm uppercase backdrop-blur-sm">
+                    <LoginLink className="bg-gradient-to-r from-[#a529bb] to-[#531e4c] text-white font-bold py-3 px-8 rounded-full shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 text-sm uppercase backdrop-blur-sm">
                         Mulai Sekarang
-                    </Link>
+                    </LoginLink>
                 </nav>
             </header>
 
@@ -79,8 +80,8 @@ export default function HomePage() {
                         <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-white via-[#a529bb] to-white bg-clip-text text-transparent">Bangun AI Sendiri<br />untuk Bisnis Anda</h1>
                         <p className="text-lg text-[#c0c0c0] max-w-2xl mx-auto mb-10">Kami membantu Enterprise & UMKM Digital mengubah data mentah menjadi AI yang siap diintegrasikan dalam operasional bisnis</p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 hero-cta">
-                            <a href="#mulai" className="bg-gradient-to-r from-[#a529bb] to-[#531e4c] text-white font-bold py-4 px-10 rounded-full shadow-lg hover:scale-105 transition text-lg">Mulai Gratis</a>
-                            <a href="#konsultasi" className="border-2 border-[#a529bb] text-[#a529bb] font-bold py-4 px-10 rounded-full hover:bg-[#a529bb] hover:text-white transition text-lg">Konsultasi Gratis</a>
+                            <LoginLink className="bg-gradient-to-r from-[#a529bb] to-[#531e4c] text-white font-bold py-4 px-10 rounded-full shadow-lg hover:scale-105 transition text-lg">Mulai Gratis</LoginLink>
+                            <a href="/book-demo" className="border-2 border-[#a529bb] text-[#a529bb] font-bold py-4 px-10 rounded-full hover:bg-[#a529bb] hover:text-white transition text-lg">Konsultasi Gratis</a>
                         </div>
                         {/* Trust badges removed as requested */}
                     </div>
@@ -183,8 +184,8 @@ export default function HomePage() {
                             <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-white to-[#a529bb] bg-clip-text text-transparent">Siap Memulai Perjalanan AI Anda?</h2>
                             <p className="text-[#c0c0c0] text-lg mb-8 max-w-2xl mx-auto">Bergabunglah dengan ratusan perusahaan yang sudah mempercayai MelekAI untuk membangun solusi AI mereka</p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center cta-buttons">
-                                <a href="#signup" className="bg-gradient-to-r from-[#a529bb] to-[#531e4c] text-white font-bold py-4 px-10 rounded-full shadow-lg hover:scale-105 transition text-lg">Mulai Gratis Sekarang</a>
-                                <a href="#konsultasi" className="bg-gradient-to-r from-[#4e4b1a] to-[#a529bb] text-white font-bold py-4 px-10 rounded-full shadow-lg hover:scale-105 transition text-lg">Konsultasi untuk AI Custom</a>
+                                <LoginLink className="bg-gradient-to-r from-[#a529bb] to-[#531e4c] text-white font-bold py-4 px-10 rounded-full shadow-lg hover:scale-105 transition text-lg">Mulai Gratis Sekarang</LoginLink>
+                                <a href="/book-demo" className="bg-gradient-to-r from-[#4e4b1a] to-[#a529bb] text-white font-bold py-4 px-10 rounded-full shadow-lg hover:scale-105 transition text-lg">Konsultasi untuk AI Custom</a>
                             </div>
                         </div>
                     </div>
