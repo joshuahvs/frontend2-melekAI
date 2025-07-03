@@ -1,19 +1,20 @@
 // import { NextResponse } from "next/server";
 // import nodemailer from "nodemailer";
 
-export async function POST(request: Request) {
-  const body = await request.json();
+export async function POST() {
+// export async function POST(request: Request) {
+//   const body = await request.json();
 
-  const {
-    fullName,
-    company,
-    email,
-    jobTitle,
-    phone,
-    country,
-    city,
-    budget,
-  } = body;
+//   const {
+//     fullName,
+//     company,
+//     email,
+//     jobTitle,
+//     phone,
+//     country,
+//     city,
+//     budget,
+//   } = body;
 
 //   const transporter = nodemailer.createTransport({
 //     service: "gmail", // or another SMTP provider
