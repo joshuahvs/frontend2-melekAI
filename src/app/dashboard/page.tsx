@@ -27,7 +27,7 @@ export default async function DashboardPage() {
         <div>
           <h1 className="text-3xl font-bold text-gray-800">Projects</h1>
           <p className="text-gray-500 mt-1">
-            Organize, manage, and track all your team's work in one place.
+            Organize, manage, and track all your team&apos;s work in one place.
           </p>
         </div>
         <Link href="/project/create/" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#3a1152] text-white font-semibold text-sm hover:bg-opacity-50 transition-colors">

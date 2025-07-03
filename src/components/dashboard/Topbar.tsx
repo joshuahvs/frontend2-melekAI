@@ -1,7 +1,6 @@
 'use client';
 
 import { Bell, Search } from "lucide-react";
-import { Fragment } from 'react';
 // Note: For a real app, you'd use a library like Headless UI for the Dropdown/Menu
 // This is a visual representation.
 
