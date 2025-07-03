@@ -2,7 +2,7 @@ import { RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { ArrowRight, Bot, Database, LayoutDashboard, GanttChartSquare, PencilRuler, Files, BarChart3, UserCog, Zap, Shield, Users, Clock, Target, TrendingUp } from 'lucide-react';
 
 // Import the new components
-import Navbar from "@/components/Navbar"; 
+import Navbar from "@/components/NavbarServerWrapper"; 
 import Footer from "@/components/Footer"; 
 
 // Helper components (can also be moved to their own files if desired)
