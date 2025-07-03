@@ -1,6 +1,7 @@
 import { RegisterLink, LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { ArrowRight, Bot, Database, LayoutDashboard, GanttChartSquare, PencilRuler, Files, BarChart3, UserCog, Zap, Shield, Sparkles, Users, Globe, Mail, MapPin, Phone, Github, Twitter, Linkedin, CheckCircle, TrendingUp, Clock, Target } from 'lucide-react';
+import Link from "next/link";
 
 // Komponen helper untuk kartu fitur dengan gaya yang lebih menarik
 const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => (
@@ -79,7 +80,10 @@ export default async function HomePage() {
             ) : (
               <div className="flex items-center gap-4">
                 <p className="text-sm text-[#c0c0c0]">Selamat datang, {user.email}</p>
-                <LogoutLink className="text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity" style={{ backgroundColor: '#531e4c' }}>
+                <Link href='/dashboard' className="text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity" style={{ backgroundColor: '#531e4c' }}>
+                  Dashboard
+                </Link>
+                <LogoutLink className="text-red-400 px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
                   Keluar
                 </LogoutLink>
               </div>
