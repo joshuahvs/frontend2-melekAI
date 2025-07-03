@@ -48,7 +48,10 @@ const Particles = () => {
 export default function HomePage() {
  
     return (
-        <div style={{ backgroundColor: '#000000' }} className="text-white min-h-screen relative">
+        <div style={{ backgroundColor: '#000000' }} className="text-white min-h-screen relative overflow-hidden">
+            {/* Gradient background accents */}
+            <div className="pointer-events-none select-none absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#a529bb]/60 via-transparent to-transparent rounded-full blur-3xl z-0" />
+            <div className="pointer-events-none select-none absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tl from-[#a529bb]/60 via-transparent to-transparent rounded-full blur-3xl z-0" />
             <Particles />
             {/* Header/Navbar (custom, not imported) */}
             <header className="fixed w-full top-0 z-50 bg-[#000000]/95 border-b border-[#a529bb]/20 backdrop-blur-lg">
@@ -76,13 +79,7 @@ export default function HomePage() {
                             <a href="#mulai" className="bg-gradient-to-r from-[#a529bb] to-[#531e4c] text-white font-bold py-4 px-10 rounded-full shadow-lg hover:scale-105 transition text-lg">Mulai Gratis</a>
                             <a href="#konsultasi" className="border-2 border-[#a529bb] text-[#a529bb] font-bold py-4 px-10 rounded-full hover:bg-[#a529bb] hover:text-white transition text-lg">Konsultasi Gratis</a>
                         </div>
-                        <div className="flex flex-wrap justify-center gap-6 opacity-70 text-[#888994] text-sm mt-10 trust-badges">
-                            <span className="font-semibold uppercase">Trusted by 100+ Companies</span>
-                            <span>•</span>
-                            <span className="font-semibold uppercase">Data Aman & Terpercaya</span>
-                            <span>•</span>
-                            <span className="font-semibold uppercase">Support 24/7</span>
-                        </div>
+                        {/* Trust badges removed as requested */}
                     </div>
                 </section>
 
