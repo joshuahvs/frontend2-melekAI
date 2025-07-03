@@ -22,7 +22,7 @@ export default function Sidebar() {
 
       {/* NEW: More complete navigation with icons and active state */}
       <nav className="text-sm flex flex-col gap-2">
-        <a href="#" className="flex items-center py-2 px-3 text-white bg-fuchsia-600 rounded-md font-medium">
+        <a href="/dashboard" className="flex items-center py-2 px-3 text-white bg-fuchsia-600 rounded-md font-medium">
           <Home size={18} className="mr-3" />
           Dashboard
         </a>
