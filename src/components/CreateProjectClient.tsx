@@ -47,11 +47,10 @@ export default function CreateProjectClient({ user }: Props) {
   const projectTemplates = [
     {
       id: 1,
-      title: "Visual Object Detection",
-      description:
-        "Identify and locate objects within images using advanced bounding box techniques",
-      dataType: "Image",
-      useCase: "Object Detection",
+      title: 'Visual Object Detection',
+      description: 'Identify and locate objects within images using advanced bounding box techniques',
+      dataType: 'Image',
+      useCase: 'Object Detection',
       icon: <Target className="w-12 h-12 text-blue-500" />,
       preview: (
         <div className="relative w-full h-32 bg-gradient-to-br from-purple-900 to-blue-900 rounded-lg overflow-hidden">
@@ -61,15 +60,14 @@ export default function CreateProjectClient({ user }: Props) {
           <div className="absolute bottom-4 left-8 w-20 h-10 border-2 border-green-400 rounded"></div>
         </div>
       ),
-      tags: ["Computer Vision", "Detection"],
+      tags: ['Computer Vision', 'Detection']
     },
     {
       id: 2,
-      title: "Content Classification",
-      description:
-        "Categorize and analyze text content with intelligent classification algorithms",
-      dataType: "Text",
-      useCase: "Content Classification",
+      title: 'Content Classification',
+      description: 'Categorize and analyze text content with intelligent classification algorithms',
+      dataType: 'Text',
+      useCase: 'Content Classification',
       icon: <BarChart3 className="w-12 h-12 text-green-500" />,
       preview: (
         <div className="w-full h-32 bg-gradient-to-br from-green-900 to-emerald-900 rounded-lg flex items-center justify-center">
@@ -89,9 +87,146 @@ export default function CreateProjectClient({ user }: Props) {
           </div>
         </div>
       ),
-      tags: ["NLP", "Classification"],
+      tags: ['NLP', 'Classification']
     },
-    // ... more templates (omitted for brevity, but should be included)
+    {
+      id: 3,
+      title: 'Smart Image Analysis',
+      description: 'Advanced image recognition and content analysis with AI-powered insights',
+      dataType: 'Image',
+      useCase: 'Content Classification',
+      icon: <Eye className="w-12 h-12 text-purple-500" />,
+      preview: (
+        <div className="w-full h-32 bg-gradient-to-br from-purple-900 to-indigo-900 rounded-lg flex items-center justify-center">
+          <div className="relative">
+            <div className="w-20 h-16 bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg opacity-80"></div>
+            <div className="absolute -top-1 -right-1 w-8 h-6 bg-white rounded text-xs flex items-center justify-center text-purple-900 font-bold">AI</div>
+          </div>
+        </div>
+      ),
+      tags: ['Computer Vision', 'AI Analysis']
+    },
+    {
+      id: 4,
+      title: 'Semantic Segmentation',
+      description: 'Pixel-level understanding and segmentation of image components',
+      dataType: 'Image',
+      useCase: 'Semantic Segmentation',
+      icon: <Layers className="w-12 h-12 text-orange-500" />,
+      preview: (
+        <div className="w-full h-32 bg-gradient-to-br from-orange-900 to-red-900 rounded-lg overflow-hidden">
+          <div className="flex h-full">
+            <div className="w-1/3 bg-gradient-to-b from-orange-400 to-orange-600 opacity-70"></div>
+            <div className="w-1/3 bg-gradient-to-b from-red-400 to-red-600 opacity-70"></div>
+            <div className="w-1/3 bg-gradient-to-b from-pink-400 to-pink-600 opacity-70"></div>
+          </div>
+        </div>
+      ),
+      tags: ['Segmentation', 'Pixel Analysis']
+    },
+    {
+      id: 5,
+      title: 'Entity Recognition',
+      description: 'Extract and identify named entities from text with high precision',
+      dataType: 'Text',
+      useCase: 'Named Entity Recognition',
+      icon: <Hash className="w-12 h-12 text-teal-500" />,
+      preview: (
+        <div className="w-full h-32 bg-gradient-to-br from-teal-900 to-cyan-900 rounded-lg p-4">
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <div className="text-xs text-blue-400">Person</div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <div className="text-xs text-green-400">Location</div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+              <div className="text-xs text-yellow-400">Organization</div>
+            </div>
+          </div>
+        </div>
+      ),
+      tags: ['NLP', 'Entity Extraction']
+    },
+    {
+      id: 6,
+      title: 'Video Analysis',
+      description: 'Real-time object tracking and event detection in video streams',
+      dataType: 'Video',
+      useCase: 'Object & Event Detection',
+      icon: <Video className="w-12 h-12 text-indigo-500" />,
+      preview: (
+        <div className="w-full h-32 bg-gradient-to-br from-indigo-900 to-purple-900 rounded-lg flex items-center justify-center">
+          <div className="relative">
+            <div className="w-16 h-12 bg-indigo-400 rounded opacity-80"></div>
+            <div className="absolute top-1 right-1 w-4 h-3 border border-white rounded"></div>
+            <div className="absolute bottom-1 left-1 w-4 h-3 border border-white rounded"></div>
+          </div>
+        </div>
+      ),
+      tags: ['Video Processing', 'Real-time']
+    },
+    {
+      id: 7,
+      title: 'Multi-Scale Classification',
+      description: 'Handle large taxonomies and complex classification hierarchies',
+      dataType: 'Image',
+      useCase: 'Content Classification',
+      icon: <Sparkles className="w-12 h-12 text-yellow-500" />,
+      preview: (
+        <div className="w-full h-32 bg-gradient-to-br from-yellow-900 to-orange-900 rounded-lg flex items-center justify-center">
+          <div className="grid grid-cols-2 gap-2">
+            <div className="w-8 h-6 bg-yellow-400 rounded opacity-80"></div>
+            <div className="w-8 h-6 bg-orange-400 rounded opacity-80"></div>
+            <div className="w-8 h-6 bg-red-400 rounded opacity-80"></div>
+            <div className="w-8 h-6 bg-pink-400 rounded opacity-80"></div>
+          </div>
+        </div>
+      ),
+      tags: ['Multi-class', 'Hierarchical']
+    },
+    {
+      id: 8,
+      title: 'Biological Analysis',
+      description: 'Advanced segmentation for biological and medical imaging',
+      dataType: 'Image',
+      useCase: 'Semantic Segmentation',
+      icon: <Microscope className="w-12 h-12 text-emerald-500" />,
+      preview: (
+        <div className="w-full h-32 bg-gradient-to-br from-emerald-900 to-green-900 rounded-lg flex items-center justify-center">
+          <div className="relative">
+            <div className="w-16 h-16 border-2 border-emerald-400 rounded-full"></div>
+            <div className="absolute top-2 left-2 w-4 h-4 bg-emerald-400 rounded-full opacity-80"></div>
+            <div className="absolute bottom-2 right-2 w-6 h-6 bg-green-400 rounded-full opacity-60"></div>
+          </div>
+        </div>
+      ),
+      tags: ['Medical', 'Biology']
+    },
+    {
+      id: 9,
+      title: 'Conversational AI',
+      description: 'Build intelligent chatbots with context-aware response generation',
+      dataType: 'Text',
+      useCase: 'Text Generation',
+      icon: <MessageSquare className="w-12 h-12 text-blue-500" />,
+      preview: (
+        <div className="w-full h-32 bg-gradient-to-br from-blue-900 to-indigo-900 rounded-lg p-4">
+          <div className="space-y-2">
+            <div className="flex justify-start">
+              <div className="bg-blue-400 rounded-lg px-2 py-1 text-xs">Hello!</div>
+            </div>
+            <div className="flex justify-end">
+              <div className="bg-white rounded-lg px-2 py-1 text-xs text-gray-800">How can I help?</div>
+            </div>
+          </div>
+        </div>
+      ),
+      tags: ['Chatbot', 'Generation']
+    }
   ];
 
   const filteredTemplates = projectTemplates.filter((template) => {
