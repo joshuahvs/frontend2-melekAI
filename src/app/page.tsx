@@ -181,7 +181,7 @@ export default function HomePage() {
                             <p className="text-[#c0c0c0] text-lg mb-8 max-w-2xl mx-auto">Bergabunglah dengan ratusan perusahaan yang sudah mempercayai MelekAI untuk membangun solusi AI mereka</p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center cta-buttons">
                                 <a href="#signup" className="bg-gradient-to-r from-[#a529bb] to-[#531e4c] text-white font-bold py-4 px-10 rounded-full shadow-lg hover:scale-105 transition text-lg">Mulai Gratis Sekarang</a>
-                                <a href="#konsultasi" className="bg-gradient-to-r from-[#4e4b1a] to-[#a529bb] text-white font-bold py-4 px-10 rounded-full shadow-lg hover:scale-105 transition text-lg">Konsultasi untuk AI Custom</a>
+                                <a href="/book-demo" className="bg-gradient-to-r from-[#4e4b1a] to-[#a529bb] text-white font-bold py-4 px-10 rounded-full shadow-lg hover:scale-105 transition text-lg">Konsultasi untuk AI Custom</a>
                             </div>
                         </div>
                     </div>
