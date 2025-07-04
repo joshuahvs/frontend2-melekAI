@@ -18,18 +18,19 @@ import {
 import Image from "next/image";
 import ProjectSidebar from "./Sidebar";
 import ProjectTopbar from "./Topbar";
+import { useRouter } from "next/navigation";
 
 type User = { email?: string } | null;
 
 interface CreateProjectClientProps {
   user: User;
 }
-
 const CreateProjectClient: React.FC<CreateProjectClientProps> = ({ user }) => {
   // Prevent unused variable warning
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const _user = user;
 
+  const router = useRouter();
   const [step, setStep] = useState(1); // 1: Select Template, 2: Create Project Form
   const [selectedTemplate, setSelectedTemplate] = useState<number | null>(null);
   
@@ -317,9 +318,8 @@ const CreateProjectClient: React.FC<CreateProjectClientProps> = ({ user }) => {
     
     // Simulate API call
     setTimeout(() => {
-      // Redirect to project upload page
-      // window.location.href = `/project/${Math.random().toString(36).substr(2, 9)}`;
-      alert('Project created! Redirecting to upload page...');
+      // Redirect to project detail page with a generated ID
+      router.push(`/project/${Math.random().toString(36).substr(2, 9)}`);
     }, 1000);
   };
 
