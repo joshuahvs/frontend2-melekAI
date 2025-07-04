@@ -11,7 +11,7 @@ type Props = {
   onCreateProject?: () => void;
 };
 
-export default function Topbar({ user, onCreateProject }: Props) {
+export default function Topbar({ user }: Props) {
   const email = user?.email || "user@example.com";
   const initial = email[0]?.toUpperCase() || "U";
 
