@@ -339,7 +339,7 @@ const CreateProjectClient: React.FC<CreateProjectClientProps> = ({ user }) => {
         setShowFilters={setShowFilters}
         onRequestTemplate={handleRequestTemplate}
       />
-      <div className="flex flex-1 mt-8">
+      <div className="flex flex-1">
         {/* Sidebar: normal block, not sticky/fixed, always starts below topbar */}
         <aside className="hidden md:block w-64">
           <ProjectSidebar />
@@ -473,7 +473,7 @@ const CreateProjectClient: React.FC<CreateProjectClientProps> = ({ user }) => {
             ) : (
               // Step 2: Project Creation Form
               <>
-                <div className="flex items-center gap-4 mb-8 mt-8">
+                <div className="flex items-center gap-4 mb-8">
                   <button
                     onClick={() => setStep(1)}
                     className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors"
