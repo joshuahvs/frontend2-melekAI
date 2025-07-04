@@ -15,7 +15,7 @@ export default function Topbar({ user, onCreateProject }: Props) {
   const initial = email[0]?.toUpperCase() || "U";
 
   return (
-    <header className="w-full border-b bg-black/90 backdrop-blur-lg h-20 px-6 flex items-center justify-between sticky top-0 z-40">
+    <header className="w-full border-b fixed top-0 left-0 bg-black/90 backdrop-blur-lg h-20 px-6 flex items-center justify-between z-40">
       {/* Logo in title */}
       <div className="flex items-center gap-4">
         <div className="flex flex-col">

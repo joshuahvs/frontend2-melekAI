@@ -2,6 +2,8 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Footer from '@/components/Footer';
+// import Navbar from '@/components/NavbarClient';
 
 
 // Floating Particles Component
@@ -46,29 +48,32 @@ const Particles = () => {
 };
 
 export default function HomePage() {
- 
     return (
         <div style={{ backgroundColor: '#000000' }} className="text-white min-h-screen relative overflow-hidden">
             {/* Gradient background accents */}
             <div className="pointer-events-none select-none absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#a529bb]/60 via-transparent to-transparent rounded-full blur-3xl z-0" />
             <div className="pointer-events-none select-none absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tl from-[#a529bb]/60 via-transparent to-transparent rounded-full blur-3xl z-0" />
             <Particles />
-            {/* Header/Navbar (custom, not imported) */}
-            <header className="fixed w-full top-0 z-50 bg-[#000000]/95 border-b border-[#a529bb]/20 backdrop-blur-lg">
+            
+            {/* Header/Navbar with Glass Effect */}
+            <header className="fixed w-full top-0 z-50 bg-black/20 backdrop-blur-xl border-b border-white/10 shadow-lg">
                 <nav className="container mx-auto flex justify-between items-center py-5 px-6">
                     <Link href="#beranda" className="flex items-center gap-2">
                         <Image src="/logo.svg" alt="MelekAI Logo" className="h-10 w-auto" width={120} height={40} priority />
                     </Link>
                     <ul className="hidden md:flex gap-10 text-white/90 font-medium">
-                        <li><Link href="#beranda" className="hover:text-[#a529bb] transition">Beranda</Link></li>
-                        <li><Link href="#solusi" className="hover:text-[#a529bb] transition">Solusi</Link></li>
-                        <li><Link href="#kontak" className="hover:text-[#a529bb] transition">Kontak</Link></li>
+                        <li><Link href="/" className="hover:text-[#a529bb] transition-all duration-300 hover:scale-105">Beranda</Link></li>
+                        <li><Link href="#solusi" className="hover:text-[#a529bb] transition-all duration-300 hover:scale-105">Solusi</Link></li>
+                        <li><Link href="/pricing" className="hover:text-[#a529bb] transition-all duration-300 hover:scale-105">Harga</Link></li>
+                        <li><Link href="#kontak" className="hover:text-[#a529bb] transition-all duration-300 hover:scale-105">Kontak</Link></li>
                     </ul>
-                    <Link href="/api/auth/login?post_login_redirect_url=/dashboard" className="bg-gradient-to-r from-[#a529bb] to-[#531e4c] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:scale-105 transition text-sm uppercase">Mulai Sekarang</Link>
+                    <Link href="/api/auth/login?post_login_redirect_url=/dashboard" className="bg-gradient-to-r from-[#a529bb] to-[#531e4c] text-white font-bold py-3 px-8 rounded-full shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 text-sm uppercase backdrop-blur-sm">
+                        Mulai Sekarang
+                    </Link>
                 </nav>
             </header>
 
-            <main className="relative z-10 pt-32">
+            <main className="relative z-10 pt-8">
                 {/* Hero Section */}
                 <section id="beranda" className="hero text-center py-32 relative">
                     <div className="container mx-auto px-6">
@@ -77,7 +82,7 @@ export default function HomePage() {
                         <p className="text-lg text-[#c0c0c0] max-w-2xl mx-auto mb-10">Kami membantu Enterprise & UMKM Digital mengubah data mentah menjadi AI yang siap diintegrasikan dalam operasional bisnis</p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 hero-cta">
                             <a href="#mulai" className="bg-gradient-to-r from-[#a529bb] to-[#531e4c] text-white font-bold py-4 px-10 rounded-full shadow-lg hover:scale-105 transition text-lg">Mulai Gratis</a>
-                            <a href="#konsultasi" className="border-2 border-[#a529bb] text-[#a529bb] font-bold py-4 px-10 rounded-full hover:bg-[#a529bb] hover:text-white transition text-lg">Konsultasi Gratis</a>
+                            <a href="/book-demo" className="border-2 border-[#a529bb] text-[#a529bb] font-bold py-4 px-10 rounded-full hover:bg-[#a529bb] hover:text-white transition text-lg">Konsultasi Gratis</a>
                         </div>
                         {/* Trust badges removed as requested */}
                     </div>
@@ -127,17 +132,17 @@ export default function HomePage() {
                             <div className="use-case-card bg-white/5 border border-white/10 p-10 rounded-2xl backdrop-blur-md hover:scale-105 transition relative text-center">
                                 <h3 className="text-xl font-bold mb-3 text-white">Customer Service AI Agent</h3>
                                 <p className="text-[#c0c0c0] mb-4">AI agent yang menjawab ribuan pertanyaan pelanggan dari berbagai kanal (web, WhatsApp, email) secara otomatis, 24/7.</p>
-                                <Image src="/book-demo-image.jpg" alt="Contoh Customer Service AI" className="use-case-image mx-auto rounded-lg border border-[#a529bb]/30" width={500} height={300} />
+                                <Image src="/customerservice-agent.jpg" alt="Contoh Customer Service AI" className="use-case-image mx-auto rounded-lg border border-[#a529bb]/30" width={500} height={300} />
                             </div>
                             <div className="use-case-card bg-white/5 border border-white/10 p-10 rounded-2xl backdrop-blur-md hover:scale-105 transition relative text-center">
                                 <h3 className="text-xl font-bold mb-3 text-white">Content Generator Agent</h3>
                                 <p className="text-[#c0c0c0] mb-4">AI agent bantu buat caption IG, konten promosi, dan desain visual dari template + tren viral.</p>
-                                <Image src="/file.svg" alt="Contoh Content Generator AI" className="use-case-image mx-auto rounded-lg border border-[#a529bb]/30" width={500} height={300} />
+                                <Image src="/content-generator.jpg" alt="Contoh Content Generator AI" className="use-case-image mx-auto rounded-lg border border-[#a529bb]/30" width={500} height={300} />
                             </div>
                             <div className="use-case-card bg-white/5 border border-white/10 p-10 rounded-2xl backdrop-blur-md hover:scale-105 transition relative text-center">
                                 <h3 className="text-xl font-bold mb-3 text-white">Laporan Keuangan Otomatis Agent</h3>
                                 <p className="text-[#c0c0c0] mb-4">Agent membaca transaksi harian (dari QRIS, GoFood, dll) → hasilkan ringkasan cashflow mingguan + rekomendasi efisiensi.</p>
-                                <Image src="/globe.svg" alt="Contoh Laporan Keuangan AI" className="use-case-image mx-auto rounded-lg border border-[#a529bb]/30" width={500} height={300} />
+                                <Image src="/laporan-otomatis.jpg" alt="Contoh Laporan Keuangan AI" className="use-case-image mx-auto rounded-lg border border-[#a529bb]/30" width={500} height={300} />
                             </div>
                         </div>
                     </div>
@@ -188,40 +193,8 @@ export default function HomePage() {
                 </section>
             </main>
 
-            {/* Footer */}
-            <footer id="kontak" className="pt-28 pb-10 bg-[#000000]/70 border-t border-white/10">
-                <div className="container mx-auto px-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10 footer-content">
-                        <div className="footer-section">
-                            <h3 className="text-lg font-bold mb-4 text-white">MelekAI</h3>
-                            <p className="text-[#c0c0c0]">Platform AI terdepan untuk Enterprise & UMKM Digital Indonesia. Wujudkan visi AI bisnis Anda bersama kami.</p>
-                        </div>
-                        <div className="footer-section">
-                            <h3 className="text-lg font-bold mb-4 text-white">Layanan</h3>
-                            <p><a href="#" className="hover:text-[#a529bb] transition">Data Processing</a></p>
-                            <p><a href="#" className="hover:text-[#a529bb] transition">AI Development</a></p>
-                            <p><a href="#" className="hover:text-[#a529bb] transition">Integration Services</a></p>
-                            <p><a href="#" className="hover:text-[#a529bb] transition">Konsultasi AI</a></p>
-                        </div>
-                        <div className="footer-section">
-                            <h3 className="text-lg font-bold mb-4 text-white">Perusahaan</h3>
-                            <p><a href="#" className="hover:text-[#a529bb] transition">Tentang Kami</a></p>
-                            <p><a href="#" className="hover:text-[#a529bb] transition">Karir</a></p>
-                            <p><a href="#" className="hover:text-[#a529bb] transition">Blog</a></p>
-                            <p><a href="#" className="hover:text-[#a529bb] transition">Press Kit</a></p>
-                        </div>
-                        <div className="footer-section">
-                            <h3 className="text-lg font-bold mb-4 text-white">Kontak</h3>
-                            <p className="text-[#c0c0c0]">Email: hello@melekai.id</p>
-                            <p className="text-[#c0c0c0]">Phone: +62 21 5555 0123</p>
-                            <p className="text-[#c0c0c0]">Jakarta, Indonesia</p>
-                        </div>
-                    </div>
-                    <div className="footer-bottom text-center pt-8 border-t border-white/10 text-[#888994]">
-                        <p>© 2025 MelekAI. All rights reserved. Made with ❤️ in Indonesia</p>
-                    </div>
-                </div>
-            </footer>
+            {/* Enhanced Footer */}
+            <Footer />
         </div>
     );
 }
