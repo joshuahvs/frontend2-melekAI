@@ -1,5 +1,5 @@
 // components/Footer.tsx
-import { Sparkles, Mail, Phone, MapPin, Globe, Github, Twitter, Linkedin } from 'lucide-react';
+// import { Sparkles, Mail, Phone, MapPin, Globe, Github, Twitter, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 

@@ -46,7 +46,7 @@ const Particles = () => {
 
 export default function PricingPage() {
     const [billingCycle, setBillingCycle] = useState('monthly');
-    const [selectedPlan, setSelectedPlan] = useState('');
+    // const [selectedPlan, setSelectedPlan] = useState('');
 
     const pricingPlans = [
         {
@@ -299,7 +299,7 @@ export default function PricingPage() {
                                     </div>
 
                                     <button
-                                        onClick={() => setSelectedPlan(plan.name)}
+                                        // onClick={() => setSelectedPlan(plan.name)}
                                         className={`w-full mt-auto py-4 px-6 rounded-full font-bold transition-all duration-300 ${
                                             plan.popular
                                                 ? 'bg-gradient-to-r from-[#a529bb] to-[#531e4c] text-white shadow-lg hover:scale-105'

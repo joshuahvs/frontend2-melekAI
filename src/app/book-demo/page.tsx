@@ -1,4 +1,3 @@
-import Navbar from "@/components/NavbarServerWrapper";
 import Footer from "@/components/Footer";
 import BookDemoClient from "@/components/BookDemoClient";
 import Link from "next/link";
