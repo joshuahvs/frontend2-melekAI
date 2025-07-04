@@ -1,219 +1,227 @@
-import { RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
-import { ArrowRight, Bot, Database, LayoutDashboard, GanttChartSquare, PencilRuler, Files, BarChart3, UserCog, Zap, Shield, Users, Clock, Target, TrendingUp } from 'lucide-react';
+"use client";
+import React, { useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
-// Import the new components
-import Navbar from "@/components/NavbarServerWrapper"; 
-import Footer from "@/components/Footer"; 
 
-// Helper components (can also be moved to their own files if desired)
-const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => (
-    <div className="group relative bg-gradient-to-br from-white/5 to-white/10 p-6 rounded-xl border border-white/20 transition-all duration-500 transform hover:-translate-y-2 hover:bg-gradient-to-br hover:from-white/10 hover:to-white/15 hover:border-[#a529bb]/50 hover:shadow-2xl hover:shadow-[#a529bb]/20">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#a529bb]/0 to-[#531e4c]/0 group-hover:from-[#a529bb]/10 group-hover:to-[#531e4c]/10 rounded-xl transition-all duration-500"></div>
-        <div className="relative z-10">
-            <div className="text-[#939ba9] group-hover:text-[#a529bb] transition-colors duration-500 mb-4 transform group-hover:scale-110">{icon}</div>
-            <h3 className="font-bold text-lg mb-2 text-white group-hover:text-[#a529bb] transition-colors duration-300">{title}</h3>
-            <p className="text-[#c0c0c0] text-sm group-hover:text-[#e0e0e0] transition-colors duration-300">{description}</p>
+// Floating Particles Component
+const Particles = () => {
+    useEffect(() => {
+        const particleCount = 30;
+        const container = document.getElementById('particles');
+        if (!container) return;
+        container.innerHTML = '';
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 8 + 's';
+            particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            container.appendChild(particle);
+        }
+    }, []);
+    return (
+        <div
+            id="particles"
+            className="fixed top-0 left-0 w-full h-full z-[1] pointer-events-none"
+        >
+            {/* Particles will be injected here */}
+            <style>{`
+                .particle {
+                    position: absolute;
+                    width: 2px;
+                    height: 2px;
+                    background: rgba(165,41,187,0.5);
+                    border-radius: 50%;
+                    animation: float 8s infinite ease-in-out;
+                }
+                @keyframes float {
+                    0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+                    50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
+                }
+            `}</style>
         </div>
-    </div>
-);
-
-const StatCard = ({ number, label }: { number: string, label: string }) => (
-    <div className="text-center p-6 bg-gradient-to-br from-[#a529bb]/20 to-[#531e4c]/20 rounded-xl border border-[#a529bb]/30">
-        <div className="text-3xl font-bold text-white mb-2">{number}</div>
-        <div className="text-[#888994] text-sm">{label}</div>
-    </div>
-);
-
-const UseCaseCard = ({ icon, title, description, color }: { icon: React.ReactNode, title: string, description: string, color: string }) => (
-    <div className="group p-6 rounded-xl border border-white/20 bg-gradient-to-br from-white/5 to-white/10 hover:from-white/10 hover:to-white/15 transition-all duration-300 hover:-translate-y-1">
-        <div className="flex items-center gap-3 mb-3">
-            <div className={`p-2 rounded-lg`} style={{ backgroundColor: color + '20', border: `1px solid ${color}40` }}>
-                <div style={{ color: color }}>{icon}</div>
-            </div>
-            <h3 className="font-semibold text-white">{title}</h3>
-        </div>
-        <p className="text-[#c0c0c0] text-sm">{description}</p>
-    </div>
-);
+    );
+};
 
 export default function HomePage() {
-    const coreModules = [
-        { icon: <UserCog size={24} />, title: "Otentikasi Terpusat", description: "Manajemen akses pengguna yang aman dan terintegrasi untuk melindungi data dan proyek Anda dengan enkripsi tingkat enterprise." },
-        { icon: <GanttChartSquare size={24} />, title: "Manajemen Proyek AI", description: "Alur kerja terstruktur dari awal hingga akhir. Lacak progres, kelola tim, dan pastikan proyek selesai tepat waktu dengan milestone tracking." },
-        { icon: <Database size={24} />, title: "Data Engine Cerdas", description: "Pusat data Anda. Lakukan ingest, pra-pemrosesan, dan augmentasi data skala besar dengan mudah. Dukung berbagai format dan sumber data." },
-        { icon: <PencilRuler size={24} />, title: "Anotasi & Pelabelan", description: "Tools kolaboratif untuk pelabelan data yang presisi dan cepat, didukung oleh AI untuk efisiensi. Mendukung computer vision dan NLP." },
-        { icon: <Bot size={24} />, title: "Layanan AI/ML", description: "Deploy, monitor, dan kelola model machine learning Anda dalam satu tempat. Dari training hingga production dengan auto-scaling." },
-        { icon: <Files size={24} />, title: "Penagihan & Laporan", description: "Sistem billing otomatis berdasarkan penggunaan (usage-based) dan laporan performa yang mendalam dengan analytics real-time." },
-        { icon: <LayoutDashboard size={24} />, title: "Dashboard Admin", description: "Kontrol penuh atas platform. Pantau aktivitas pengguna, penggunaan sumber daya, dan kesehatan sistem dengan monitoring 24/7." },
-        { icon: <BarChart3 size={24} />, title: "Dashboard Pengguna", description: "Area kerja personal untuk setiap pengguna. Akses proyek, data, dan lihat analisis performa pribadi dengan visualisasi interaktif." },
-    ];
-
-    const useCases = [
-        { icon: <Bot size={20} />, title: "Computer Vision", description: "Anotasi gambar, deteksi objek, dan klasifikasi visual untuk autonomous vehicles, medical imaging, dan retail analytics.", color: "#a529bb" },
-        { icon: <PencilRuler size={20} />, title: "Natural Language Processing", description: "Sentiment analysis, chatbot training, dan text classification untuk customer service dan content moderation.", color: "#531e4c" },
-        { icon: <TrendingUp size={20} />, title: "Predictive Analytics", description: "Forecasting dan trend analysis untuk finance, supply chain, dan business intelligence dengan akurasi tinggi.", color: "#4e4b1a" },
-        { icon: <Target size={20} />, title: "Recommendation Systems", description: "Personalisasi konten dan product recommendation untuk e-commerce dan streaming platforms.", color: "#888994" },
-    ];
-
+ 
     return (
-        <div style={{ backgroundColor: '#000000' }} className="text-white min-h-screen">
-            <Navbar />
+        <div style={{ backgroundColor: '#000000' }} className="text-white min-h-screen relative overflow-hidden">
+            {/* Gradient background accents */}
+            <div className="pointer-events-none select-none absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#a529bb]/60 via-transparent to-transparent rounded-full blur-3xl z-0" />
+            <div className="pointer-events-none select-none absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tl from-[#a529bb]/60 via-transparent to-transparent rounded-full blur-3xl z-0" />
+            <Particles />
+            {/* Header/Navbar (custom, not imported) */}
+            <header className="fixed w-full top-0 z-50 bg-[#000000]/95 border-b border-[#a529bb]/20 backdrop-blur-lg">
+                <nav className="container mx-auto flex justify-between items-center py-5 px-6">
+                    <Link href="#beranda" className="flex items-center gap-2">
+                        <Image src="/logo.svg" alt="MelekAI Logo" className="h-10 w-auto" width={120} height={40} priority />
+                    </Link>
+                    <ul className="hidden md:flex gap-10 text-white/90 font-medium">
+                        <li><Link href="#beranda" className="hover:text-[#a529bb] transition">Beranda</Link></li>
+                        <li><Link href="#solusi" className="hover:text-[#a529bb] transition">Solusi</Link></li>
+                        <li><Link href="#kontak" className="hover:text-[#a529bb] transition">Kontak</Link></li>
+                    </ul>
+                    <Link href="/api/auth/login?post_login_redirect_url=/dashboard" className="bg-gradient-to-r from-[#a529bb] to-[#531e4c] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:scale-105 transition text-sm uppercase">Mulai Sekarang</Link>
+                </nav>
+            </header>
 
-            <main>
+            <main className="relative z-10 pt-32">
                 {/* Hero Section */}
-                <section className="relative pt-32 pb-20 text-center overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#a529bb]/20 via-[#000000] to-[#531e4c]/20"></div>
-                    <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-[#a529bb]/20 to-[#531e4c]/20 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-[#4e4b1a]/20 to-[#a529bb]/20 rounded-full blur-3xl"></div>
-
-                    <div className="container mx-auto px-6 relative z-10">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#a529bb]/30 mb-6" style={{ backgroundColor: '#a529bb' + '20' }}>
-                            <Zap size={16} style={{ color: '#a529bb' }} />
-                            <span className="text-sm font-medium" style={{ color: '#a529bb' }}>🚀 Solusi AI Terdepan untuk Bisnis Indonesia</span>
+                <section id="beranda" className="hero text-center py-32 relative">
+                    <div className="container mx-auto px-6">
+                        <div className="inline-block bg-[#a529bb] bg-opacity-10 border border-[#a529bb]/30 px-5 py-2 rounded-full text-white font-semibold mb-8 animate-pulse">🚀 Solusi AI Terdepan untuk Bisnis Indonesia</div>
+                        <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-white via-[#a529bb] to-white bg-clip-text text-transparent">Bangun AI Sendiri<br />untuk Bisnis Anda</h1>
+                        <p className="text-lg text-[#c0c0c0] max-w-2xl mx-auto mb-10">Kami membantu Enterprise & UMKM Digital mengubah data mentah menjadi AI yang siap diintegrasikan dalam operasional bisnis</p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 hero-cta">
+                            <a href="#mulai" className="bg-gradient-to-r from-[#a529bb] to-[#531e4c] text-white font-bold py-4 px-10 rounded-full shadow-lg hover:scale-105 transition text-lg">Mulai Gratis</a>
+                            <a href="#konsultasi" className="border-2 border-[#a529bb] text-[#a529bb] font-bold py-4 px-10 rounded-full hover:bg-[#a529bb] hover:text-white transition text-lg">Konsultasi Gratis</a>
                         </div>
-
-                        <h2 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-white via-[#939ba9] to-white bg-clip-text text-transparent">
-                            Bangun AI yang <br />
-                            <span className="bg-gradient-to-r from-[#a529bb] to-[#531e4c] bg-clip-text text-transparent">Mengubah Dunia</span>
-                        </h2>
-
-                        <p className="text-lg text-[#e0e0e0] max-w-3xl mx-auto mb-8 leading-relaxed">
-                            Platform end-to-end pertama di Indonesia yang menyatukan <strong className="text-white">data labeling</strong>, <strong className="text-white">model training</strong>, dan <strong className="text-white">deployment</strong> dalam satu ekosistem.
-                            Dari startup hingga enterprise, percepat inovasi AI Anda dengan tools yang telah dipercaya oleh 1000+ developer.
-                        </p>
-
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-                            <RegisterLink className="text-white font-bold py-4 px-8 rounded-xl inline-flex items-center gap-2 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-lg" style={{ backgroundColor: '#a529bb', boxShadow: '0 0 30px #a529bb40' }}>
-                                Mulai Gratis <ArrowRight size={20} />
-                            </RegisterLink>
-                            <button className="text-[#e0e0e0] font-medium py-4 px-8 rounded-xl border border-[#e0e0e0]/30 hover:border-white hover:text-white transition-all duration-300 inline-flex items-center gap-2">
-                                <Bot size={20} />
-                                Lihat Demo
-                            </button>
-                        </div>
-
-                        {/* Stats */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                            <StatCard number="1000+" label="Developer Aktif" />
-                            <StatCard number="50M+" label="Data Points Diproses" />
-                            <StatCard number="99.9%" label="Uptime SLA" />
-                            <StatCard number="24/7" label="Support Premium" />
-                        </div>
+                        {/* Trust badges removed as requested */}
                     </div>
                 </section>
 
-                {/* All other sections remain the same... */}
-                {/* Problem Statement, Core Modules, Use Cases, CTA Section */}
-
-                {/* Problem Statement */}
-                <section className="py-20 border-t border-white/10">
+                {/* Features Section */}
+                <section id="solusi" className="py-28 features">
                     <div className="container mx-auto px-6">
-                        <div className="max-w-4xl mx-auto text-center mb-16">
-                            <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white">Mengapa MelekAI?</h3>
-                            <p className="text-[#c0c0c0] text-lg leading-relaxed">
-                                Developer AI di Indonesia menghadapi tantangan kompleks: infrastruktur yang terfragmentasi,
-                                biaya labeling yang mahal, dan kompleksitas deployment. MelekAI hadir sebagai solusi terintegrasi
-                                yang mengatasi semua pain points ini dalam satu platform.
-                            </p>
-                        </div>
-
-                        <div className="grid md:grid-cols-3 gap-8">
-                            <div className="text-center p-8 rounded-xl border border-[#531e4c]/30 bg-gradient-to-br from-[#531e4c]/10 to-[#a529bb]/10">
-                                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#531e4c] to-[#a529bb] flex items-center justify-center">
-                                    <Clock size={24} className="text-white" />
-                                </div>
-                                <h4 className="text-xl font-bold text-white mb-3">Hemat 80% Waktu Development</h4>
-                                <p className="text-[#c0c0c0]">Dari berbulan-bulan menjadi berminggu-minggu. Fokus pada inovasi, bukan infrastruktur.</p>
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4 bg-gradient-to-r from-white to-[#a529bb] bg-clip-text text-transparent section-title">Solusi Lengkap AI untuk Bisnis</h2>
+                        <p className="text-[#c0c0c0] text-lg text-center mb-16 max-w-2xl mx-auto section-subtitle">Dari data mentah hingga AI yang siap digunakan - semua dalam satu platform</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 features-grid">
+                            <div className="feature-card bg-white/5 border border-white/10 p-10 rounded-2xl backdrop-blur-md hover:scale-105 transition relative">
+                                <div className="feature-icon w-14 h-14 flex items-center justify-center rounded-xl mb-6 text-2xl bg-gradient-to-br from-[#a529bb] to-[#531e4c]">🧠</div>
+                                <h3 className="text-xl font-bold mb-3 text-white">Data Processing & Labeling</h3>
+                                <p className="text-[#c0c0c0]">Otomatisasi pembersihan dan pelabelan data dengan AI. Mengubah data mentah menjadi dataset berkualitas tinggi yang siap digunakan.</p>
                             </div>
-
-                            <div className="text-center p-8 rounded-xl border border-[#4e4b1a]/30 bg-gradient-to-br from-[#4e4b1a]/10 to-[#a529bb]/10">
-                                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#4e4b1a] to-[#a529bb] flex items-center justify-center">
-                                    <Shield size={24} className="text-white" />
-                                </div>
-                                <h4 className="text-xl font-bold text-white mb-3">Enterprise-Grade Security</h4>
-                                <p className="text-[#c0c0c0]">Keamanan data terjamin dengan enkripsi end-to-end dan compliance international.</p>
+                            <div className="feature-card bg-white/5 border border-white/10 p-10 rounded-2xl backdrop-blur-md hover:scale-105 transition relative">
+                                <div className="feature-icon w-14 h-14 flex items-center justify-center rounded-xl mb-6 text-2xl bg-gradient-to-br from-[#a529bb] to-[#531e4c]">⚡</div>
+                                <h3 className="text-xl font-bold mb-3 text-white">Custom AI Development</h3>
+                                <p className="text-[#c0c0c0]">Membangun model AI khusus sesuai kebutuhan bisnis Anda. Dari chatbot hingga sistem prediksi yang canggih.</p>
                             </div>
-
-                            <div className="text-center p-8 rounded-xl border border-[#888994]/30 bg-gradient-to-br from-[#888994]/10 to-[#531e4c]/10">
-                                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#888994] to-[#531e4c] flex items-center justify-center">
-                                    <Users size={24} className="text-white" />
-                                </div>
-                                <h4 className="text-xl font-bold text-white mb-3">Kolaborasi Tim Seamless</h4>
-                                <p className="text-[#c0c0c0]">Tools kolaborasi yang memungkinkan tim distributed bekerja efektif bersama.</p>
+                            <div className="feature-card bg-white/5 border border-white/10 p-10 rounded-2xl backdrop-blur-md hover:scale-105 transition relative">
+                                <div className="feature-icon w-14 h-14 flex items-center justify-center rounded-xl mb-6 text-2xl bg-gradient-to-br from-[#a529bb] to-[#531e4c]">🔗</div>
+                                <h3 className="text-xl font-bold mb-3 text-white">AI Integration Services</h3>
+                                <p className="text-[#c0c0c0]">Integrasi seamless AI ke dalam sistem existing Anda. API ready dan dokumentasi lengkap untuk developer.</p>
                             </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Core Modules Section */}
-                <section className="py-20 border-t border-white/10">
-                    <div className="container mx-auto px-6">
-                        <div className="text-center mb-16">
-                            <h3 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#a529bb] to-[#531e4c] bg-clip-text text-transparent">
-                                8 Modul Terintegrasi untuk Skalabilitas
-                            </h3>
-                            <p className="text-[#c0c0c0] text-lg max-w-2xl mx-auto">
-                                Semua tools yang dibutuhkan developer AI modern, dari ideation hingga production,
-                                kini dalam satu solusi yang powerful dan mudah digunakan.
-                            </p>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {coreModules.map((mod, index) => (
-                                <div key={mod.title} className="transform transition-all duration-300" style={{ animationDelay: `${index * 100}ms` }}>
-                                    <FeatureCard icon={mod.icon} title={mod.title} description={mod.description} />
-                                </div>
-                            ))}
+                            <div className="feature-card bg-white/5 border border-white/10 p-10 rounded-2xl backdrop-blur-md hover:scale-105 transition relative">
+                                <div className="feature-icon w-14 h-14 flex items-center justify-center rounded-xl mb-6 text-2xl bg-gradient-to-br from-[#a529bb] to-[#531e4c]">🛡️</div>
+                                <h3 className="text-xl font-bold mb-3 text-white">Security & Compliance</h3>
+                                <p className="text-[#c0c0c0]">Keamanan data tingkat enterprise dengan compliance terhadap standar industri dan regulasi Indonesia.</p>
+                            </div>
+                            <div className="feature-card bg-white/5 border border-white/10 p-10 rounded-2xl backdrop-blur-md hover:scale-105 transition relative">
+                                <div className="feature-icon w-14 h-14 flex items-center justify-center rounded-xl mb-6 text-2xl bg-gradient-to-br from-[#a529bb] to-[#531e4c]">🎯</div>
+                                <h3 className="text-xl font-bold mb-3 text-white">Konsultasi Ahli</h3>
+                                <p className="text-[#c0c0c0]">Tim ahli AI siap membantu merancang strategi AI yang tepat untuk mencapai tujuan bisnis Anda.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
 
                 {/* Use Cases Section */}
-                <section className="py-20 border-t border-white/10">
+                <section id="use-cases" className="py-28 use-cases">
                     <div className="container mx-auto px-6">
-                        <div className="text-center mb-16">
-                            <h3 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-                                Solusi untuk Berbagai Industry
-                            </h3>
-                            <p className="text-[#c0c0c0] text-lg max-w-2xl mx-auto">
-                                Dari healthcare hingga fintech, MelekAI telah membantu berbagai industri
-                                mengimplementasikan AI dengan sukses dan menghasilkan ROI yang signifikan.
-                            </p>
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4 bg-gradient-to-r from-white to-[#a529bb] bg-clip-text text-transparent section-title">Use Cases AI Kami</h2>
+                        <p className="text-[#c0c0c0] text-lg text-center mb-16 max-w-2xl mx-auto section-subtitle">Temukan bagaimana MelekAI dapat mengubah bisnis Anda dengan solusi AI yang inovatif dan patuh terhadap regulasi lokal</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 use-cases-grid">
+                            <div className="use-case-card bg-white/5 border border-white/10 p-10 rounded-2xl backdrop-blur-md hover:scale-105 transition relative text-center">
+                                <h3 className="text-xl font-bold mb-3 text-white">Customer Service AI Agent</h3>
+                                <p className="text-[#c0c0c0] mb-4">AI agent yang menjawab ribuan pertanyaan pelanggan dari berbagai kanal (web, WhatsApp, email) secara otomatis, 24/7.</p>
+                                <Image src="/book-demo-image.jpg" alt="Contoh Customer Service AI" className="use-case-image mx-auto rounded-lg border border-[#a529bb]/30" width={500} height={300} />
+                            </div>
+                            <div className="use-case-card bg-white/5 border border-white/10 p-10 rounded-2xl backdrop-blur-md hover:scale-105 transition relative text-center">
+                                <h3 className="text-xl font-bold mb-3 text-white">Content Generator Agent</h3>
+                                <p className="text-[#c0c0c0] mb-4">AI agent bantu buat caption IG, konten promosi, dan desain visual dari template + tren viral.</p>
+                                <Image src="/file.svg" alt="Contoh Content Generator AI" className="use-case-image mx-auto rounded-lg border border-[#a529bb]/30" width={500} height={300} />
+                            </div>
+                            <div className="use-case-card bg-white/5 border border-white/10 p-10 rounded-2xl backdrop-blur-md hover:scale-105 transition relative text-center">
+                                <h3 className="text-xl font-bold mb-3 text-white">Laporan Keuangan Otomatis Agent</h3>
+                                <p className="text-[#c0c0c0] mb-4">Agent membaca transaksi harian (dari QRIS, GoFood, dll) → hasilkan ringkasan cashflow mingguan + rekomendasi efisiensi.</p>
+                                <Image src="/globe.svg" alt="Contoh Laporan Keuangan AI" className="use-case-image mx-auto rounded-lg border border-[#a529bb]/30" width={500} height={300} />
+                            </div>
                         </div>
-                        <div className="grid md:grid-cols-2 gap-6">
-                            {useCases.map((useCase, index) => (
-                                <div key={useCase.title} className="transform transition-all duration-300" style={{ animationDelay: `${index * 150}ms` }}>
-                                    <UseCaseCard {...useCase} />
-                                </div>
-                            ))}
+                    </div>
+                </section>
+
+                {/* Process Section */}
+                <section className="py-28 process bg-[#000000]/30">
+                    <div className="container mx-auto px-6">
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4 bg-gradient-to-r from-white to-[#a529bb] bg-clip-text text-transparent section-title">Proses Sederhana, Hasil Maksimal</h2>
+                        <p className="text-[#c0c0c0] text-lg text-center mb-16 max-w-2xl mx-auto section-subtitle">4 langkah mudah untuk memiliki AI sendiri</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 process-steps">
+                            <div className="step text-center">
+                                <div className="step-number w-20 h-20 bg-gradient-to-br from-[#a529bb] to-[#531e4c] rounded-full flex items-center justify-center text-3xl font-extrabold mx-auto mb-6">1</div>
+                                <h3 className="text-xl font-bold mb-3 text-white">Upload Data</h3>
+                                <p className="text-[#c0c0c0]">Upload data mentah Anda (teks, gambar, atau format lainnya) ke platform kami yang aman dan mudah digunakan.</p>
+                            </div>
+                            <div className="step text-center">
+                                <div className="step-number w-20 h-20 bg-gradient-to-br from-[#a529bb] to-[#531e4c] rounded-full flex items-center justify-center text-3xl font-extrabold mx-auto mb-6">2</div>
+                                <h3 className="text-xl font-bold mb-3 text-white">AI Processing</h3>
+                                <p className="text-[#c0c0c0]">AI kami akan otomatis membersihkan, memproses, dan melabel data Anda dengan akurasi tinggi.</p>
+                            </div>
+                            <div className="step text-center">
+                                <div className="step-number w-20 h-20 bg-gradient-to-br from-[#a529bb] to-[#531e4c] rounded-full flex items-center justify-center text-3xl font-extrabold mx-auto mb-6">3</div>
+                                <h3 className="text-xl font-bold mb-3 text-white">Model Training</h3>
+                                <p className="text-[#c0c0c0]">Data yang sudah bersih digunakan untuk melatih model AI khusus sesuai kebutuhan bisnis Anda.</p>
+                            </div>
+                            <div className="step text-center">
+                                <div className="step-number w-20 h-20 bg-gradient-to-br from-[#a529bb] to-[#531e4c] rounded-full flex items-center justify-center text-3xl font-extrabold mx-auto mb-6">4</div>
+                                <h3 className="text-xl font-bold mb-3 text-white">Deploy & Integrate</h3>
+                                <p className="text-[#c0c0c0]">AI siap diintegrasikan ke sistem Anda dengan dukungan penuh dari tim ahli kami.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
 
                 {/* CTA Section */}
-                <section className="py-20 border-t border-white/10">
+                <section id="mulai" className="py-28 cta-section">
                     <div className="container mx-auto px-6 text-center">
-                        <div className="max-w-4xl mx-auto p-12 rounded-2xl bg-gradient-to-br from-[#a529bb]/20 to-[#531e4c]/20 border border-[#a529bb]/30">
-                            <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-                                Siap Memulai Perjalanan AI Anda?
-                            </h3>
-                            <p className="text-[#c0c0c0] text-lg mb-8 max-w-2xl mx-auto">
-                                Bergabunglah dengan 1000+ developer yang sudah mempercayai MelekAI.
-                                Mulai gratis hari ini dan rasakan perbedaannya dalam 5 menit pertama.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <RegisterLink className="text-white font-bold py-4 px-8 rounded-xl inline-flex items-center gap-2 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-lg" style={{ backgroundColor: '#a529bb' }}>
-                                    Mulai Gratis Sekarang <ArrowRight size={20} />
-                                </RegisterLink>
-                                <button className="text-[#e0e0e0] font-medium py-4 px-8 rounded-xl border border-[#e0e0e0]/30 hover:border-white hover:text-white transition-all duration-300">
-                                    Jadwalkan Demo
-                                </button>
+                        <div className="cta-content bg-[#a529bb]/10 border border-[#a529bb]/30 p-16 rounded-2xl backdrop-blur-md">
+                            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-white to-[#a529bb] bg-clip-text text-transparent">Siap Memulai Perjalanan AI Anda?</h2>
+                            <p className="text-[#c0c0c0] text-lg mb-8 max-w-2xl mx-auto">Bergabunglah dengan ratusan perusahaan yang sudah mempercayai MelekAI untuk membangun solusi AI mereka</p>
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center cta-buttons">
+                                <a href="#signup" className="bg-gradient-to-r from-[#a529bb] to-[#531e4c] text-white font-bold py-4 px-10 rounded-full shadow-lg hover:scale-105 transition text-lg">Mulai Gratis Sekarang</a>
+                                <a href="/book-demo" className="bg-gradient-to-r from-[#4e4b1a] to-[#a529bb] text-white font-bold py-4 px-10 rounded-full shadow-lg hover:scale-105 transition text-lg">Konsultasi untuk AI Custom</a>
                             </div>
                         </div>
                     </div>
                 </section>
             </main>
 
-            <Footer />
+            {/* Footer */}
+            <footer id="kontak" className="pt-28 pb-10 bg-[#000000]/70 border-t border-white/10">
+                <div className="container mx-auto px-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10 footer-content">
+                        <div className="footer-section">
+                            <h3 className="text-lg font-bold mb-4 text-white">MelekAI</h3>
+                            <p className="text-[#c0c0c0]">Platform AI terdepan untuk Enterprise & UMKM Digital Indonesia. Wujudkan visi AI bisnis Anda bersama kami.</p>
+                        </div>
+                        <div className="footer-section">
+                            <h3 className="text-lg font-bold mb-4 text-white">Layanan</h3>
+                            <p><a href="#" className="hover:text-[#a529bb] transition">Data Processing</a></p>
+                            <p><a href="#" className="hover:text-[#a529bb] transition">AI Development</a></p>
+                            <p><a href="#" className="hover:text-[#a529bb] transition">Integration Services</a></p>
+                            <p><a href="#" className="hover:text-[#a529bb] transition">Konsultasi AI</a></p>
+                        </div>
+                        <div className="footer-section">
+                            <h3 className="text-lg font-bold mb-4 text-white">Perusahaan</h3>
+                            <p><a href="#" className="hover:text-[#a529bb] transition">Tentang Kami</a></p>
+                            <p><a href="#" className="hover:text-[#a529bb] transition">Karir</a></p>
+                            <p><a href="#" className="hover:text-[#a529bb] transition">Blog</a></p>
+                            <p><a href="#" className="hover:text-[#a529bb] transition">Press Kit</a></p>
+                        </div>
+                        <div className="footer-section">
+                            <h3 className="text-lg font-bold mb-4 text-white">Kontak</h3>
+                            <p className="text-[#c0c0c0]">Email: hello@melekai.id</p>
+                            <p className="text-[#c0c0c0]">Phone: +62 21 5555 0123</p>
+                            <p className="text-[#c0c0c0]">Jakarta, Indonesia</p>
+                        </div>
+                    </div>
+                    <div className="footer-bottom text-center pt-8 border-t border-white/10 text-[#888994]">
+                        <p>© 2025 MelekAI. All rights reserved. Made with ❤️ in Indonesia</p>
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 }
