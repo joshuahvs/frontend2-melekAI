@@ -10,7 +10,7 @@ interface ProjectDetailTopbarProps {
 
 export default function ProjectDetailTopbar({ projectName, onExitProject }: ProjectDetailTopbarProps) {
   return (
-    <header className="w-full bg-black py-4 px-6 flex flex-col md:flex-row md:items-center md:justify-between shadow-lg z-20 gap-4">
+    <header className="w-full fixed bg-black py-4 px-6 flex flex-col md:flex-row md:items-center md:justify-between shadow-lg z-20 gap-4">
       <div className="flex items-center gap-4">
         <div className="flex flex-col">
           <span className="text-2xl font-bold leading-tight flex items-center gap-2 text-white drop-shadow-md">

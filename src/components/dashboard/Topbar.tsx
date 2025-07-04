@@ -2,6 +2,7 @@
 
 import { Bell, Search, Plus } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
   user: {
@@ -10,7 +11,7 @@ type Props = {
   onCreateProject?: () => void;
 };
 
-export default function Topbar({ user, onCreateProject }: Props) {
+export default function Topbar({ user }: Props) {
   const email = user?.email || "user@example.com";
   const initial = email[0]?.toUpperCase() || "U";
 
@@ -51,13 +52,13 @@ export default function Topbar({ user, onCreateProject }: Props) {
           <Bell size={22} />
           <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white" />
         </button>
-        <button
+        <Link
           className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-[#3a1152] via-purple-600 to-yellow-400 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-yellow-400/80 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
-          onClick={onCreateProject}
+          href="/project/create"
         >
           <Plus size={20} />
           Create New Project
-        </button>
+        </Link>
         <button className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#3a1152] font-bold text-sm border border-fuchsia-300">
             {initial}
