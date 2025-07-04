@@ -52,10 +52,10 @@ export default function PricingPage() {
         {
             name: 'Starter',
             description: 'Untuk UMKM & startup yang baru memulai',
-            monthlyPrice: 499000,
-            yearlyPrice: 4990000,
+            monthlyPrice: 1499000,
+            yearlyPrice: 14990000,
             features: [
-                'Hingga 10,000 data points/bulan',
+                'Hingga 5,000 data points/bulan',
                 'Basic data labeling & processing',
                 'Standard AI model templates',
                 'Email support',
@@ -75,10 +75,10 @@ export default function PricingPage() {
         {
             name: 'Professional',
             description: 'Untuk perusahaan yang ingin scale AI operations',
-            monthlyPrice: 1499000,
-            yearlyPrice: 14990000,
+            monthlyPrice: 2500000,
+            yearlyPrice: 24900000,
             features: [
-                'Hingga 100,000 data points/bulan',
+                'Hingga 10,000 data points/bulan',
                 'Advanced data labeling & processing',
                 'Custom AI model development',
                 'Priority email & chat support',
