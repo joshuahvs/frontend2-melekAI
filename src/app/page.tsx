@@ -132,17 +132,17 @@ export default function HomePage() {
                             <div className="use-case-card bg-white/5 border border-white/10 p-10 rounded-2xl backdrop-blur-md hover:scale-105 transition relative text-center">
                                 <h3 className="text-xl font-bold mb-3 text-white">Customer Service AI Agent</h3>
                                 <p className="text-[#c0c0c0] mb-4">AI agent yang menjawab ribuan pertanyaan pelanggan dari berbagai kanal (web, WhatsApp, email) secara otomatis, 24/7.</p>
-                                <Image src="/book-demo-image.jpg" alt="Contoh Customer Service AI" className="use-case-image mx-auto rounded-lg border border-[#a529bb]/30" width={500} height={300} />
+                                <Image src="/customerservice-agent.jpg" alt="Contoh Customer Service AI" className="use-case-image mx-auto rounded-lg border border-[#a529bb]/30" width={500} height={300} />
                             </div>
                             <div className="use-case-card bg-white/5 border border-white/10 p-10 rounded-2xl backdrop-blur-md hover:scale-105 transition relative text-center">
                                 <h3 className="text-xl font-bold mb-3 text-white">Content Generator Agent</h3>
                                 <p className="text-[#c0c0c0] mb-4">AI agent bantu buat caption IG, konten promosi, dan desain visual dari template + tren viral.</p>
-                                <Image src="/file.svg" alt="Contoh Content Generator AI" className="use-case-image mx-auto rounded-lg border border-[#a529bb]/30" width={500} height={300} />
+                                <Image src="/content-generator.jpg" alt="Contoh Content Generator AI" className="use-case-image mx-auto rounded-lg border border-[#a529bb]/30" width={500} height={300} />
                             </div>
                             <div className="use-case-card bg-white/5 border border-white/10 p-10 rounded-2xl backdrop-blur-md hover:scale-105 transition relative text-center">
                                 <h3 className="text-xl font-bold mb-3 text-white">Laporan Keuangan Otomatis Agent</h3>
                                 <p className="text-[#c0c0c0] mb-4">Agent membaca transaksi harian (dari QRIS, GoFood, dll) → hasilkan ringkasan cashflow mingguan + rekomendasi efisiensi.</p>
-                                <Image src="/globe.svg" alt="Contoh Laporan Keuangan AI" className="use-case-image mx-auto rounded-lg border border-[#a529bb]/30" width={500} height={300} />
+                                <Image src="/laporan-otomatis.jpg" alt="Contoh Laporan Keuangan AI" className="use-case-image mx-auto rounded-lg border border-[#a529bb]/30" width={500} height={300} />
                             </div>
                         </div>
                     </div>
