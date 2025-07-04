@@ -604,7 +604,7 @@ export default function ProjectDetail() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <ProjectDetailTopbar projectName={project.name} onExitProject={handleExitProject} />
-      <div className="flex flex-1">
+      <div className="flex flex-1 mt-16">
         <aside className="hidden md:block w-64">
           <ProjectSidebar />
         </aside>
