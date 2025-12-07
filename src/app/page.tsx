@@ -66,6 +66,7 @@ export default function HomePage() {
                         <li><Link href="#solusi" className="hover:text-[#a529bb] transition-all duration-300 hover:scale-105">Solusi</Link></li>
                         <li><Link href="/pricing" className="hover:text-[#a529bb] transition-all duration-300 hover:scale-105">Harga</Link></li>
                         <li><Link href="#kontak" className="hover:text-[#a529bb] transition-all duration-300 hover:scale-105">Kontak</Link></li>
+                        <li><Link href="https://melek-edu.vercel.app/" className="text-white hover:text-[#a529bb]">Melek Edu</Link></li>
                     </ul>
                     <Link href="/api/auth/login?post_login_redirect_url=/dashboard" className="bg-gradient-to-r from-[#a529bb] to-[#531e4c] text-white font-bold py-3 px-8 rounded-full shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 text-sm uppercase backdrop-blur-sm">
                         Mulai Sekarang

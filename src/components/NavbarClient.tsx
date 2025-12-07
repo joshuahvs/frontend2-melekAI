@@ -41,6 +41,7 @@ export default function Navbar({ user }: Props) {
           <li><Link href="/" className="text-white hover:text-[#a529bb]">Beranda</Link></li>
           <li><Link href="/pricing" className="text-white hover:text-[#a529bb]">Harga</Link></li>
           <li><Link href="/contact" className="text-white hover:text-[#a529bb]">Kontak</Link></li>
+          <li><Link href="https://melek-edu.vercel.app/" className="text-white hover:text-[#a529bb]">Melek Edu</Link></li>
         </ul>
 
         {/* Auth Buttons */}
